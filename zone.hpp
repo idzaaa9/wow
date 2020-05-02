@@ -5,14 +5,31 @@
 #include "dinstring.hpp"
 #include "xyz.hpp"
 
-struct subZone{
-  Point SZBorder[8];
+class subZone{
+protected:
+  List<Point> SZBorder;
   DinString SZName;
+public:
   subZone() : SZName(), SZBorder(){}
-  subZone(Point BorderRef[8], DinString NameRed) : SZName(NameRed){
-      for(int n = 0; n < 8; ++n){
-	SZBorder[n](BorderRef[n]);}
-  }
+  subZone(List<Point> refBorder, DinString NameRed) : SZName(NameRed), SZBorder(refBorder) {}
+  subZone(const subZone& ref) : SZBorder(ref.getSZBorder()), SZName(ref.getSZName()) {}
+  List<Point> getSZBorder() const {return SZBorder;}
+  DinString getSZName() const {return SZName;}
+  void setSZBorder(List<Point> refBorder){SZBorder = refBorder;}
+  void setSZName(DinString refName){SZName = refName;}
+};
+
+enum Faction{ALLIANCE, HORDE, NEUTRAL};
+class City : protected subZone{
+private:
+  Faction CityFac;
+public:
+  City() : subZone(){CityFac = NEUTRAL;}
+  City(const subZone& ref, const Faction& Fref) : subZone(ref) {CityFac = Fref;}
+  City(const City& ref) : subZone(ref.getSZ()) {CityFac = ref.getF();}
+  subZone getSZ() const {return new subZone(subZone.SZBorder, subZone.SZName);}
+  Faction getF() const {return CityFac;}
+  void setF(Faction Fref) {CityFac = Fref;}
 };
 
 class Zone{
