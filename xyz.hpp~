@@ -1,0 +1,10 @@
+#pragma once
+
+#include <iostream>
+
+union xyz{
+  double xyz[3];
+  struct{
+    double x,y,z;
+  };
+};

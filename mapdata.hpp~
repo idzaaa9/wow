@@ -1,0 +1,27 @@
+#pragma once
+
+#include <iostream>
+#include "list.hpp"
+#include "dinstring.hpp"
+
+struct mapTri{
+  union{
+    double xyz[3];
+    struct{
+      double x, y, z;
+    };
+  };
+  DinString tex;
+};
+
+class mapData{
+private:
+  List<mapTri> dataList;
+public:
+  mapData(const List<mapTri>& ref) : dataList(ref) {}
+  mapData(const mapData& ref) : dataList(ref.getData()) {}
+  List<mapTri>& getData() {return dataList;}
+  const List<mapTri>& getData() const {return dataList;}
+};
+  
+  
