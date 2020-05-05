@@ -5,6 +5,9 @@
 #include "mapdata.hpp"
 #include "zone.hpp"
 #include "xyz.hpp"
+#include "kontinent.hpp"
+#include "item.hpp"
+#include "armor.hpp"
 
 
 int main(){
