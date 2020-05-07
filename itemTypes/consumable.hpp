@@ -1,9 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include "item.hpp"
-#include "list.hpp"
-#include "skill.hpp"
+#include "..\item.hpp"
+#include "..\list.hpp"
+#include "..\skill.hpp"
 
 class consumable : public item{
 private:

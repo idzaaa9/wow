@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "item.hpp"
-#include "stats.hpp"
+#include "..\item.hpp"
+#include "..\stats.hpp"
 
 enum wpnType{AXE1H, AXE2H, BOW, CBOW, DAG, FWEP, GUN, MACE1H, MACE2H, PARM, STAFF, SWORD1H, SWORD2H, TWEP, WAND, WNULL};
 enum wpnSlot{MAINHAND, OFFHAND, BOTH, WSNULL};
@@ -15,7 +15,7 @@ private:
   wpnSlot slot;
 public:
   weapon() : item(WEAPON), minLvl(0), wpnStats(), slot(WSNULL), wpnDmg(0), wpnAs(0), type(WNULL){}
-  weapon(const int& refValue, itemQuality refQuality, bool refSoulbound, const DinString& refName, wpnSlot refSlot, const stats& refStats, const unsigned short& refLvl) : item(WEAPON, refQuality, 1, refValue, refSoulbound, refName), slot(refSlot), wpnStats(refStats), minLvl(refLvl) {}
+  weapon(const int& refValue, itemQuality refQuality, bool refSoulbound, const DinString& refName, wpnSlot refSlot, const stats& refStats, const unsigned short& refLvl, const float& refWpnDmg, const float& refWpnAs, wpnType refType) : item(WEAPON, refQuality, 1, refValue, refSoulbound, refName), slot(refSlot), wpnStats(refStats), minLvl(refLvl), wpnDmg(refWpnDmg), wpnAs(refWpnAs), type(refType) {}
   weapon(const weapon& ref) : item(WEAPON, ref.getQuality(), 1, ref.getValue(), ref.getSoulbound(), ref.getName()), slot(ref.getSlot()), wpnStats(ref.getWpnStats()), minLvl(ref.getLvl()), wpnDmg(ref.getWpnDmg()), wpnAs(ref.getWpnAs()), type(ref.getWpnType()) {}
   stats getWpnStats()const{return wpnStats;}
   float getWpnDmg()const{return wpnDmg;}

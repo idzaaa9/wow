@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "item.hpp"
-#include "stats.hpp"
+#include "..\item.hpp"
+#include "..\stats.hpp"
 
 enum armorSlot{HEAD, SHOULDERS, CHEST, BACK, LEGS, WRIST, WAIST, FEET, TRINKET, SNULL};
 class armor : public item{

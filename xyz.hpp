@@ -9,5 +9,5 @@ union Point{
   };
   Point(){x = 0; y = 0; z = 0;}
   Point(const double refXYZ[3]) {x = refXYZ[0]; y = refXYZ[1]; z = refXYZ[2];}
-  Point(Point& ref) {x = ref.x; y = ref.y; z = ref.z;}
+  Point(const Point& ref) {x = ref.x; y = ref.y; z = ref.z;}
 };
