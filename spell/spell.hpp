@@ -5,17 +5,17 @@
 #include "spellinfo.hpp"
 
 enum target{SOLO, FRIENDLY, PARTY, HOSTILE, AOE, TARNULL};
-class skill{
+class spell{
 private:
 	DinString name;
 	damage spellinfo;
 	unsigned short rank;
 	target targetType;
 public:
-	skill() : name(), spellinfo(), rank(0), targetType(TARNULL) {}
-	skill(const DinString& refName, const damage& refSkillinfo, const unsigned short refRank, target refTargetType) :
+	spell() : name(), spellinfo(), rank(0), targetType(TARNULL) {}
+	spell(const DinString& refName, const damage& refSkillinfo, const unsigned short refRank, target refTargetType) :
 		name(refName), spellinfo(refSkillinfo), rank(refRank), targetType(refTargetType){}
-	skill(const skill& ref) : name(ref.getName()), skillinfo(ref.getSpellinfo()), rank(ref.getType()), targetType(ref.getTargetType()){}
+	spell(const spell& ref) : name(ref.getName()), skillinfo(ref.getSpellinfo()), rank(ref.getType()), targetType(ref.getTargetType()){}
 	DinString getName()const{return name;}
 	damage getSpellinfo()const{return spellinfo;}
 	unsigned short getRank()const{return rank;}
