@@ -2,22 +2,22 @@
 
 #include <iostream>
 #include "..\..\list.hpp"
-#include "..\..\skill.hpp"
+#include "..\..\spell/spell.hpp"
 #include "..\..\stats.hpp"
 #include "..\..\dinstring.hpp"
 
 class PCRace{
 private:
-  List<skill> listSkill;
+  List<spell> listSpell;
   stats raceBaseStats;
   DinString MModel, FModel;
 public:
-  PCRace() : listSkill(), raceBaseStats(), MModel(), FModel() {}
-  PCRace(const List<skill> &refListSkill, const stats& refRaceBaseStats, const DinString& refMModel, const DinString& refFModel) : listSkill(refListSkill), raceBaseStats(refRaceBaseStats), MModel(refMModel), FModel(refFModel) {}
-  PCRace(const PCRace& ref) : listSkill(ref.getListSkill()), raceBaseStats(ref.getRaceBaseStats()), MModel(ref.getMModel()), FModel(ref.getFModel()){}
-  List<skill> getListSkill()const{return listSkill;}
+  PCRace() : listSpell(), raceBaseStats(), MModel(), FModel() {}
+  PCRace(const List<spell> &refListSpell, const stats& refRaceBaseStats, const DinString& refMModel, const DinString& refFModel) : listSpell(refListSpell), raceBaseStats(refRaceBaseStats), MModel(refMModel), FModel(refFModel) {}
+  PCRace(const PCRace& ref) : listSpell(ref.getListSpell()), raceBaseStats(ref.getRaceBaseStats()), MModel(ref.getMModel()), FModel(ref.getFModel()){}
+  List<spell> getListSpell()const{return listSpell;}
   stats getRaceBaseStats()const{return raceBaseStats;}
-  void setListSkill(List<skill> ref){listSkill = ref;}
+  void setListSpell(List<spell> ref){listSpell = ref;}
   void setRaceBaseStats(stats ref){raceBaseStats = ref;}
   DinString getMModel()const{return MModel;}
   DinString getFModel()const{return FModel;}
